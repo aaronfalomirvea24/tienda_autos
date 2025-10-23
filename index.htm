@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Autos 🚗</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <h1>Tienda de Autos 🚘</h1>
+        <p>Encuentra tu próximo vehículo fácilmente.</p>
+    </header>
+
+    <main class="contenedor">
+        <aside class="filtros">
+            <h2>Filtros de Búsqueda</h2>
+
+            <section class="filtro-grupo">
+                <h3>🔍 Búsqueda Rápida</h3>
+                <input type="text" id="busqueda" placeholder="Buscar por Marca o Modelo...">
+                <button id="btn-buscar">Buscar</button> 
+            </section>
+
+            <section class="filtro-grupo">
+                <h3>💵 Rango de Precios</h3>
+                <label for="min-precio">Precio Mínimo:</label>
+                <input type="number" id="min-precio" min="0" value="0">
+
+                <label for="max-precio">Precio Máximo:</label>
+                <input type="number" id="max-precio" min="0" value="50000">
+
+                <button id="btn-filtrar-precio">Aplicar Filtro</button>
+                <p>Rango actual: $<span id="rango-min">0</span> - $<span id="rango-max">50,000</span></p>
+            </section>
+        </aside>
+
+        <section class="resultados">
+            <h2>Resultados de la Búsqueda (<span id="contador-resultados">3</span>)</h2>
+            <div id="lista-autos" class="lista-autos">
+                <div class="tarjeta-auto" data-marca="Toyota" data-modelo="Corolla" data-precio="15500">
+                    <img src="imagenes/corolla.png" alt="Toyota Corolla">
+                    <h3>Toyota Corolla</h3>
+                    <p class="precio">$15,500</p>
+                    <p>Año: 2018 | Color: Rojo</p>
+                    <button>Ver Detalles</button>
+                </div>
+
+                <div class="tarjeta-auto" data-marca="Ford" data-modelo="Mustang" data-precio="32000">
+                    <img src="imagenes/ford_mustang.png" alt="Ford Mustang">
+                    <h3>Ford Mustang</h3>
+                    <p class="precio">$32,000</p>
+                    <p>Año: 2022 | Color: Azul</p>
+                    <button>Ver Detalles</button>
+                </div>
+
+                <div class="tarjeta-auto" data-marca="Audi" data-modelo="Q5" data-precio="48900">
+                    <img src="imagenes/Audi.png" alt="Audi Q5">
+                    <h3>Audi Q5</h3>
+                    <p class="precio">$48,900</p>
+                    <p>Año: 2021 | Color: Negro</p>
+                    <button>Ver Detalles</button>
+                </div>
+            </div>
+
+            <div id="sin-resultados" class="oculto">
+                <p>😔 No se encontraron autos que coincidan con tus criterios.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tienda de Autos. Simulación de Interfaz.</p>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>

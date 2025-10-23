@@ -1,0 +1,283 @@
+/* Variables de Color para fácil modificación */
+:root {
+    --color-principal: #0056b3;      /* Azul Oscuro (Primario) */
+    --color-secundario: #007bff;     /* Azul Brillante */
+    --color-exito: #28a745;          /* Verde (Éxito/Botón Buscar) */
+    --color-peligro: #dc3545;        /* Rojo (Precio) */
+    --color-fondo: #f8f9fa;          /* Fondo muy claro */
+    --color-tarjeta-fondo: #ffffff;  /* Fondo de las tarjetas */
+    --color-sombra: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos Generales y Tipografía */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: #343a40; /* Texto oscuro */
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 5px 15px var(--color-sombra);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.contenedor {
+    display: flex;
+    max-width: 1300px; /* Un poco más amplio */
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 30px; /* Espacio entre filtros y resultados */
+}
+
+/* ------------------ Sección de Filtros (Aside) ------------------ */
+.filtros {
+    flex: 0 0 280px; /* Ancho fijo para la barra lateral */
+    padding: 25px;
+    background-color: var(--color-tarjeta-fondo);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--color-sombra);
+    height: fit-content;
+    position: sticky;
+    top: 30px; /* Más espacio arriba */
+}
+
+.filtros h2 {
+    color: var(--color-principal);
+    border-bottom: 3px solid var(--color-principal);
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    font-size: 1.4em;
+}
+
+.filtro-grupo {
+    margin-bottom: 30px;
+}
+
+.filtro-grupo h3 {
+    margin-top: 0;
+    color: #495057;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.filtros label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.filtros input[type="text"],
+.filtros input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.filtros input:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.filtros button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-exito);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.filtros button:hover {
+    background-color: #1e7e34;
+    transform: translateY(-1px);
+}
+
+/* ------------------ Sección de Resultados ------------------ */
+.resultados {
+    flex: 1;
+    padding: 0;
+}
+
+.resultados h2 {
+    color: #343a40;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.lista-autos {
+    display: grid;
+    /* Adapta a 3 columnas en pantallas grandes, mínimo 300px */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 30px; /* Más espacio entre tarjetas */
+}
+
+/* Tarjeta de Auto Individual */
+.tarjeta-auto {
+    background-color: var(--color-tarjeta-fondo);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column; /* Para asegurar que el botón quede abajo */
+}
+
+.tarjeta-auto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-auto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta-auto .info {
+    padding: 15px 20px;
+    flex-grow: 1; /* Permite que el contenido crezca */
+}
+
+.tarjeta-auto h3 {
+    margin: 0 0 5px 0;
+    color: var(--color-secundario);
+    font-size: 1.5em;
+}
+
+.tarjeta-auto p {
+    margin: 5px 0;
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+.tarjeta-auto .precio {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-peligro);
+    margin: 10px 0 15px 0;
+}
+
+.tarjeta-auto button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-secundario);
+    color: white;
+    border: none;
+    border-radius: 0 0 10px 10px; /* Bordes solo abajo */
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.tarjeta-auto button:hover {
+    background-color: var(--color-principal);
+}
+
+/* Estilos para "Sin Resultados" */
+.oculto {
+    display: none;
+}
+
+#sin-resultados {
+    padding: 30px;
+    text-align: center;
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* ------------------ Footer ------------------ */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #343a40;
+    color: #f8f9fa;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+/* ------------------ Media Queries (Responsividad) ------------------ */
+
+/* Tabletas y dispositivos medianos */
+@media (max-width: 992px) {
+    .contenedor {
+        flex-direction: column; /* Apila filtros y resultados */
+        gap: 20px;
+    }
+
+    .filtros {
+        flex: auto; /* Ocupa todo el ancho */
+        position: static; /* Ya no es sticky */
+        margin-right: 0;
+        padding: 20px;
+    }
+
+    .lista-autos {
+        /* Permite 2 columnas en dispositivos medianos */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+/* Dispositivos móviles pequeños */
+@media (max-width: 576px) {
+    .contenedor {
+        padding: 0 10px;
+    }
+    
+    header {
+        padding: 20px 0;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .filtros input[type="text"],
+    .filtros input[type="number"],
+    .filtros button {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+
+    .lista-autos {
+        /* Fuerza a 1 columna para móviles muy pequeños */
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-auto h3 {
+        font-size: 1.3em;
+    }
+    .tarjeta-auto .precio {
+        font-size: 1.6em;
+    }
+}
